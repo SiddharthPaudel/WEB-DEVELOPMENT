@@ -66,6 +66,7 @@ const AddCategory = () => {
               ></textarea>
             </div>
 
+
             <button class="btn bg-primary text-white col-md-12" type="submit">
               Add
             </button>
