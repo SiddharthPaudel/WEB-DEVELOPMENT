@@ -82,7 +82,7 @@ const ViewOrder = forwardRef((props, ref) => {
                 </tr>
                 <tr>
                   <td>
-                    <u>Order Detai</u>
+                    <u>Order Details</u>
                   </td>
                 </tr>
                 <tr>
