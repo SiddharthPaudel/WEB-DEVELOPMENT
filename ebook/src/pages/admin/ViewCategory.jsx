@@ -23,10 +23,7 @@ const ViewCategory = () => {
       .catch();
   }, []);
 
-  const editCategoryRequest = (ca) => {
-    setSelectedCategory(Object.assign({}, ca));
-    editCategoryComponent.current?.showCategoryModel();
-  };
+  
 
   const deleteCategoryRequest = (item) => {
     setSelectedCategory(item);
