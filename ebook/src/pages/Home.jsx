@@ -1,4 +1,8 @@
 import book1 from "../img/book1.jpg";
+import crow from "../img/Crow.jpg"
+import stephen from "../img/Stephen.jpg"
+import wood from "../img/Wood.jpg"
+import cold from "../img/Cold.jpg"
 import book2 from "../img/book2.jpg";
 import book3 from "../img/book3.jpeg";
 import java from "../img/java.jpg";
@@ -39,13 +43,13 @@ const Home = () => {
         </div>
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img src={book2} class="d-block w-100" height="500px" alt="..." />
+            <img src={book2} class="d-block w-100" height="450px" alt="..." />
           </div>
           <div class="carousel-item">
-            <img src={book3} class="d-block w-100" height="500px" alt="..." />
+            <img src={book3} class="d-block w-100" height="450px" alt="..." />
           </div>
           <div class="carousel-item">
-            <img src={book1} class="d-block w-100" height="500px" alt="..." />
+            <img src={book1} class="d-block w-100" height="450px" alt="..." />
           </div>
         </div>
         <button
@@ -68,12 +72,18 @@ const Home = () => {
         </button>
       </div>
       <div className="container">
-      <p className="fs-3 text-center"> Book</p> 
+      <p className="fs-3 text-center">      
+      
+      
+      
+       </p> 
         <div className="row">
           <div className="col-md-3">
             <div className="card paint-card">
               <div className="card-body text-center">
-                <img src={java} height="300px" width="90%"></img>
+
+
+                <img src={crow} height="350px" width="90%"></img>
                
                 {/* 
                  <p className="fs-5">Java</p>
@@ -92,7 +102,7 @@ const Home = () => {
           <div className="col-md-3">
             <div className="card paint-card">
               <div className="card-body text-center">
-                <img src={story} height="300px" width="90%"></img>
+                <img src={stephen} height="350px" width="90%"></img>
                 
                 {/* 
                  <p className="fs-5">Java</p>
@@ -109,7 +119,7 @@ const Home = () => {
           <div className="col-md-3">
             <div className="card paint-card">
               <div className="card-body text-center">
-                <img src={c} height="300px" width="90%"></img>
+                <img src={wood} height="350px" width="90%"></img>
                
                 {/* 
                  <p className="fs-5">Java</p>
@@ -126,7 +136,7 @@ const Home = () => {
           <div className="col-md-3">
             <div className="card paint-card">
               <div className="card-body text-center">
-                <img src={ml} height="300px" width="90%"></img>
+                <img src={cold} height="350px" width="90%"></img>
                 
                 {/* 
                  <p className="fs-5">Java</p>

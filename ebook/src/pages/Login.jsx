@@ -50,7 +50,7 @@ const Login = () => {
 
   return (
     <div
-      className="container-fluid p-0 d-flex justify-content-center align-items-center rounded"
+      className="container-fluid p-0 d-flex justify-content-center align-items-center"
       style={{
         backgroundImage: `url(${back})`,
         backgroundPosition: "center",
@@ -60,7 +60,7 @@ const Login = () => {
       }}
     >
       <div className="col-md-4">
-        <div className="card shadow-lg border-0 rounded">
+        <div className="card shadow-lg border-0">
           <div className="card-header bg-primary text-white text-center py-3">
             <h4 className="mb-0">Welcome Back!</h4>
           </div>
