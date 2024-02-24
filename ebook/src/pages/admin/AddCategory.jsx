@@ -18,19 +18,7 @@ const AddCategory = () => {
     });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    categoryService
-      .saveCategory(category)
-      .then(() => {
-        setCategory(new Category("", "",""));
-        setMessage("Category Add sucesfully");
-       
-      })
-      .catch((error) => {
-        setMessage("Something wrong on server");
-      });
-  };
+ 
 
   return (
     <div className="col-md-6 offset-md-3">
