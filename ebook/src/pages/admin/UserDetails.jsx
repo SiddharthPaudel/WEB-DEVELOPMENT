@@ -26,15 +26,7 @@ const UserDetails = () => {
           <table class="table">
             <thead>
               <tr>
-                <th scope="col">Sl No</th>
-
-                <th scope="col">Name</th>
-
-                <th scope="col">Email</th>
-
-                <th scope="col">Mobile No</th>
-
-                <th scope="col">Address</th>
+              
               </tr>
             </thead>
             <tbody>
