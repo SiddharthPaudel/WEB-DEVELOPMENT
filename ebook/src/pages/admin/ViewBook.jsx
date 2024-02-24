@@ -150,6 +150,7 @@ const ViewBook = () => {
         pauseOnHover
       />
     </div>
+    
   );
 };
 
