@@ -7,15 +7,7 @@ const User = () => {
         <table class="table">
           <thead>
             <tr>
-              <th scope="col">SL No</th>
-              <th scope="col">Name</th>
-              <th scope="col">Name</th>
-              <th scope="col">Author</th>
-              <th scope="col">Category</th>
-              <th scope="col">Description</th>
-              <th scope="col">ISBN</th>
-              <th scope="col">Price</th>
-              <th scope="col">Action</th>
+             
             </tr>
           </thead>
           <tbody>
