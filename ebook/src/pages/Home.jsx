@@ -3,6 +3,7 @@ import crow from "../img/Crow.jpg"
 import stephen from "../img/Stephen.jpg"
 import wood from "../img/Wood.jpg"
 import cold from "../img/Cold.jpg"
+import b1 from "../img/b1.avif"
 import book2 from "../img/book2.jpg";
 import book3 from "../img/book3.jpeg";
 import java from "../img/java.jpg";
@@ -43,13 +44,13 @@ const Home = () => {
         </div>
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img src={book2} class="d-block w-100" height="450px" alt="..." />
+            <img src={b1} class="d-block w-100" height="500px"  alt="..." />
           </div>
           <div class="carousel-item">
-            <img src={book3} class="d-block w-100" height="450px" alt="..." />
+            <img src={book3} class="d-block w-100" height="500px" alt="..." />
           </div>
           <div class="carousel-item">
-            <img src={book1} class="d-block w-100" height="450px" alt="..." />
+            <img src={book1} class="d-block w-100" height="500px" alt="..." />
           </div>
         </div>
         <button
