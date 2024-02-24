@@ -28,7 +28,10 @@ const ViewCategory = () => {
     editCategoryComponent.current?.showCategoryModel();
   };
 
-  
+  const deleteCategoryRequest = (item) => {
+    setSelectedCategory(item);
+    deleteCategoryComponent.current?.showDeleteModel();
+  };
 
   const deleteCategory = () => {
     categoryService
