@@ -1,55 +1,41 @@
-import { useEffect } from "react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import back from "../img/back2.jpg";
 import User from "../model/User";
 import userService from "../service/user.service";
 import { setCurrentUser } from "../store/action/user.action";
+
 const Login = () => {
-  const [user, setUser] = useState(
-    new User("", "", "", "", "", "", "", "", "", "", "")
-  );
-
-  const [message, setMessage] = useState("");
-  const [logMessage, setLogMessage] = useState("");
-
-  const [login, userLogin] = useState({
+  const [login, setLogin] = useState({
     email: "",
     password: "",
   });
+  const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const loginUser = useSelector((u) => u.user);
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-
-    userLogin((prevState) => {
-      return {
-        ...prevState,
-        [name]: value,
-      };
-    });
-  };
+  const loginUser = useSelector((state) => state.user);
 
   useEffect(() => {
     if (loginUser?.id) {
       navigate("/");
     }
-  }, []);
+  }, [loginUser, navigate]);
 
-  const loginSubmit = (e) => {
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setLogin((prevLogin) => ({
+      ...prevLogin,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = (e) => {
     e.preventDefault();
     userService
       .login(login)
       .then((res) => {
-        //setUser(res.data);
-
         dispatch(setCurrentUser(res.data));
-
-          console.log(res.data.role);
-
         if (res.data.role[0].id === 101) {
           navigate("/admin/home");
         } else {
@@ -57,67 +43,66 @@ const Login = () => {
         }
       })
       .catch((error) => {
-        setMessage("invalid email and password");
-
-        console.log(error);
+        setErrorMessage("Invalid email or password");
+        console.error(error);
       });
   };
 
   return (
     <div
-      className="container-fluid p-5 bg-img"
+      className="container-fluid p-0 d-flex justify-content-center align-items-center rounded"
       style={{
         backgroundImage: `url(${back})`,
         backgroundPosition: "center",
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
+        minHeight: "100vh",
       }}
     >
-      <div className="row">
-        <div className="col-md-5 offset-md-3">
-          <div className="card paint-card">
-            <div className="card-header ">
-              <h4 className="text-dark text-center">Login</h4>
-              {message && (
-                <p className="text-center text-danger fs-5">{message}</p>
-              )}
-
-              {logMessage && (
-                <p className="text-center text-danger fs-5">{logMessage}</p>
-              )}
-            </div>
-            <div className="card-body">
-              <form onSubmit={(e) => loginSubmit(e)}>
-                <div className="mb-3">
-                  <label className="form-label">Email address</label>
-                  <input
-                    type="email"
-                    className="form-control"
-                    onChange={(e) => handleChange(e)}
-                    name="email"
-                  />
-                </div>
-                <div className="mb-3">
-                  <label className="form-label">Password</label>
-                  <input
-                    type="password"
-                    className="form-control"
-                    onChange={(e) => handleChange(e)}
-                    name="password"
-                  />
-                </div>
-
-                <button type="submit" className="btn btn-primary col-md-12">
-                  Login
-                </button>
-
-                {/* <div className="text-center p-3">
-                  <a href="loadforgotPassword" className="text-decoration-none">
-                    Forgot Password
-                  </a>
-                </div> */}
-              </form>
-            </div>
+      <div className="col-md-4">
+        <div className="card shadow-lg border-0 rounded">
+          <div className="card-header bg-primary text-white text-center py-3">
+            <h4 className="mb-0">Welcome Back!</h4>
+          </div>
+          <div className="card-body p-4">
+            {errorMessage && (
+              <div className="alert alert-danger mb-4" role="alert">
+                {errorMessage}
+              </div>
+            )}
+            <form onSubmit={handleSubmit}>
+              <div className="mb-3">
+                <label htmlFor="email" className="form-label">
+                  Email address
+                </label>
+                <input
+                  type="email"
+                  className="form-control"
+                  id="email"
+                  name="email"
+                  value={login.email}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+              <div className="mb-3">
+                <label htmlFor="password" className="form-label">
+                  Password
+                </label>
+                <input
+                  type="password"
+                  className="form-control"
+                  id="password"
+                  name="password"
+                  value={login.password}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+              <button type="submit" className="btn btn-primary w-100">
+                Login
+              </button>
+            </form>
           </div>
         </div>
       </div>

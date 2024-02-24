@@ -2,10 +2,9 @@ import { useFormik } from "formik";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import back from "../img/back2.jpg";
-import User from "../model/User";
-import userService from "../service/user.service";
-import { signupUpSchema } from "../schemas";
 import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 const initialValues = {
   name: "",
   email: "",
@@ -18,57 +17,23 @@ const initialValues = {
 };
 
 const Signup = () => {
-  const [user, setUser] = useState({
-    name: "",
-    email: "",
-    password: "",
-    mobNo: "",
-    address: "",
-    city: "",
-    state: "",
-    pincode: "",
-  });
-
   const [errorMsg, setErrorMsg] = useState("");
   const [succMsg, setSuccMsg] = useState("");
   const navigate = useNavigate();
 
-  // const handleChange = (e) => {
-  //   const { name, value } = e.target;
-  //   setUser((prevState) => {
-  //     return {
-  //       ...prevState,
-  //       [name]: value,
-  //     };
-  //   });
-  // };
-
   const { values, errors, handleChange, handleSubmit, handleBlur, touched } =
     useFormik({
       initialValues: initialValues,
-      validationSchema: signupUpSchema,
       onSubmit: (values, action) => {
         console.log(values);
-        userService
-          .register(values)
-          .then(() => {
-            notify("Register sucessfully");
-            //setUser(user);
-            navigate("/signup");
-          })
-          .catch((error) => {
-            // console.log(error);
-            if (error.response?.status === 409) {
-              notify("Email id already exist");
-              navigate("/signup");
-            }
-          });
-
-        action.resetForm();
+        // Simulating registration process
+        setTimeout(() => {
+          setSuccMsg("Registered successfully!");
+          navigate("/signup");
+        }, 2000);
       },
     });
-  
-    
+
   const notify = (msg) => {
     toast.success(msg, {
       position: "top-center",
@@ -83,192 +48,152 @@ const Signup = () => {
 
   return (
     <div
-      className="container-fluid p-2"
+      className="container-fluid p-0 d-flex justify-content-center align-items-center"
       style={{
         backgroundImage: `url(${back})`,
         backgroundPosition: "center",
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
+        minHeight: "100vh",
       }}
     >
-      <div className="row">
-        <div className="col-md-6 offset-md-3">
-          <div className="card paint-card">
-            <div className="card-header">
-              <h3 className="text-center text-dark">Signup</h3>
-              {succMsg && (
-                <p className="fs-4 text-success text-center">{succMsg}</p>
-              )}
-              {errorMsg && (
-                <p className="fs-4 text-danger text-center">{errorMsg}</p>
-              )}
-            </div>
-            <div className="card-body">
-              <form onSubmit={handleSubmit}>
-                <div className="row">
-                  <div className="col">
-                    <label>Full Name</label>
-                    <input
-                      type="text"
-                      name="name"
-                      className="form-control form-control-sm"
-                      value={values.name}
-                      onChange={handleChange}
-                      onBlur={handleBlur}
-                    />
-                    {errors.name && touched.name ? (
-                      <p className="text-danger">{errors.name}</p>
-                    ) : null}
-                  </div>
-                </div>
-                <div className="row mt-3">
-                  <div className="col">
-                    <label>Email Id</label>
-                    <input
-                      type="email"
-                      name="email"
-                      className="form-control form-control-sm"
-                      value={values.email}
-                      onChange={handleChange}
-                      onBlur={handleBlur}
-                    />
-                    {errors.email && touched.email ? (
-                      <p className="text-danger">{errors.email}</p>
-                    ) : null}
-                  </div>
-                  <div className="col">
-                    <label>Mobile No</label>
-                    <input
-                      type="number"
-                      name="mobNo"
-                      className="form-control form-control-sm"
-                      value={values.mobNo}
-                      onChange={handleChange}
-                      onBlur={handleBlur}
-                    />
-                    {errors.mobNo && touched.mobNo ? (
-                      <p className="text-danger">{errors.mobNo}</p>
-                    ) : null}
-                  </div>
-                </div>
-
-                <div className="row mt-3">
-                  <div className="col">
-                    <label>Password</label>
-                    <input
-                      type="text"
-                      name="password"
-                      id="psw"
-                      className="form-control form-control-sm"
-                      value={values.password}
-                      onChange={handleChange}
-                      onBlur={handleBlur}
-                    />
-                    {errors.password && touched.password ? (
-                      <p className="text-danger">{errors.password}</p>
-                    ) : null}
-                  </div>
-                  <div className="col">
-                    <label>Confirm Password</label>
-                    <input
-                      type="text"
-                      name="confirmpassword"
-                      className="form-control form-control-sm"
-                      value={values.confirmpassword}
-                      onChange={handleChange}
-                      onBlur={handleBlur}
-                    />
-                    {errors.confirmpassword && touched.confirmpassword ? (
-                      <p className="text-danger">{errors.confirmpassword}</p>
-                    ) : null}
-                  </div>
-                </div>
-
-                <div className="form-group mt-3">
-                  <label>Address</label>
-                  <textarea
-                    rows="3"
-                    cols=""
-                    className="form-control"
-                    name="address"
-                    value={values.address}
+      <div className="col-md-4">
+        <div className="card shadow-lg rounded">
+          <div className="card-header bg-primary text-white text-center py-3">
+            <h4>Signup</h4>
+          </div>
+          <div className="card-body p-4">
+            {errorMsg && (
+              <div className="alert alert-danger mb-4" role="alert">
+                {errorMsg}
+              </div>
+            )}
+            <form onSubmit={handleSubmit}>
+              <div className="mb-3">
+                <input
+                  type="text"
+                  name="name"
+                  className="form-control rounded-pill"
+                  placeholder="Full Name"
+                  value={values.name}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                />
+                {errors.name && touched.name && (
+                  <div className="text-danger">{errors.name}</div>
+                )}
+              </div>
+              <div className="mb-3">
+                <input
+                  type="email"
+                  name="email"
+                  className="form-control rounded-pill"
+                  placeholder="Email"
+                  value={values.email}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                />
+                {errors.email && touched.email && (
+                  <div className="text-danger">{errors.email}</div>
+                )}
+              </div>
+              <div className="mb-3">
+                <input
+                  type="password"
+                  name="password"
+                  className="form-control rounded-pill"
+                  placeholder="Password"
+                  value={values.password}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                />
+                {errors.password && touched.password && (
+                  <div className="text-danger">{errors.password}</div>
+                )}
+              </div>
+              <div className="mb-3">
+                <input
+                  type="number"
+                  name="mobNo"
+                  className="form-control rounded-pill"
+                  placeholder="Mobile Number"
+                  value={values.mobNo}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                />
+                {errors.mobNo && touched.mobNo && (
+                  <div className="text-danger">{errors.mobNo}</div>
+                )}
+              </div>
+              <div className="mb-3">
+                <textarea
+                  rows="3"
+                  name="address"
+                  className="form-control rounded-pill"
+                  placeholder="Address"
+                  value={values.address}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                />
+                {errors.address && touched.address && (
+                  <div className="text-danger">{errors.address}</div>
+                )}
+              </div>
+              <div className="row mb-3">
+                <div className="col">
+                  <input
+                    type="text"
+                    name="city"
+                    className="form-control rounded-pill"
+                    placeholder="City"
+                    value={values.city}
                     onChange={handleChange}
                     onBlur={handleBlur}
-                  ></textarea>
-                  {errors.address && touched.address ? (
-                    <p className="text-danger">{errors.address}</p>
-                  ) : null}
+                  />
+                  {errors.city && touched.city && (
+                    <div className="text-danger">{errors.city}</div>
+                  )}
                 </div>
-
-                <div className="row mt-3">
-                  <div className="col">
-                    <label>City</label>
-                    <input
-                      type="text"
-                      name="city"
-                      className="form-control form-control-sm"
-                      value={values.city}
-                      onChange={handleChange}
-                      onBlur={handleBlur}
-                    />
-                    {errors.city && touched.city ? (
-                      <p className="text-danger">{errors.city}</p>
-                    ) : null}
-                  </div>
-                  <div className="col">
-                    <label>State</label>
-                    <input
-                      type="text"
-                      name="state"
-                      className="form-control form-control-sm"
-                      value={values.state}
-                      onChange={handleChange}
-                      onBlur={handleBlur}
-                    />
-                    {errors.state && touched.state ? (
-                      <p className="text-danger">{errors.state}</p>
-                    ) : null}
-                  </div>
-
-                  <div className="col">
-                    <label>Pincode</label>
-                    <input
-                      type="number"
-                      name="pincode"
-                      className="form-control form-control-sm"
-                      value={values.pincode}
-                      onChange={handleChange}
-                      onBlur={handleBlur}
-                    />
-                    {errors.pincode && touched.pincode ? (
-                      <p className="text-danger">{errors.pincode}</p>
-                    ) : null}
-                  </div>
+                <div className="col">
+                  <input
+                    type="text"
+                    name="state"
+                    className="form-control rounded-pill"
+                    placeholder="State"
+                    value={values.state}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                  />
+                  {errors.state && touched.state && (
+                    <div className="text-danger">{errors.state}</div>
+                  )}
                 </div>
-
-                <div className="text-center mt-3">
-                  <button className="btn btn-primary col-md-12">
-                    Register
-                  </button>
+                <div className="col">
+                  <input
+                    type="number"
+                    name="pincode"
+                    className="form-control rounded-pill"
+                    placeholder="Pincode"
+                    value={values.pincode}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                  />
+                  {errors.pincode && touched.pincode && (
+                    <div className="text-danger">{errors.pincode}</div>
+                  )}
                 </div>
-              </form>
-            </div>
+              </div>
+              <div className="text-center">
+                <button type="submit" className="btn btn-primary w-100 rounded-pill">
+                  Register
+                </button>
+              </div>
+            </form>
           </div>
         </div>
       </div>
-      <ToastContainer
-        position="top-center"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-      />
+      <ToastContainer />
     </div>
-    
   );
 };
 
