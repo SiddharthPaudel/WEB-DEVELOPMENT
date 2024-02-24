@@ -60,28 +60,8 @@ const EditBook = () => {
     });
   };
 
-  
 
-  const submitEditBook = (e) => {
-   
-    e.preventDefault();
 
-    const fd = new FormData();
-    fd.append("id", book.id);
-    fd.append("bookName", book.bookName);
-    fd.append("description", book.description);
-    fd.append("author", book.author);
-
-    fd.append("isbnNo", book.isbnNo);
-    fd.append("language", book.language);
-    fd.append("price", book.price);
-    fd.append("file", imgFile);
-
-    if (book.categorysId == null) {
-      fd.append("categorysId", book.category.id);
-    } else {
-      fd.append("categorysId", book.categorysId);
-    }
 
     bookService
       .updateBook(fd)
