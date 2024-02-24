@@ -10,6 +10,7 @@ const DeleteAlert = forwardRef((props, ref) => {
         }
     }))
 
+    
 
     const [show, setShow] = useState(false);
     const [message, setMessage] = useState("");
