@@ -5,7 +5,17 @@ import bookService from "../../service/book.service";
 import { setCurrentUser } from "../../store/action/user.action";
 
 const EditProfile = () => {
- 
+  const [user, setUser] = useState({
+    id: "",
+    name: "",
+    email: "",
+    password: "",
+    mobNo: "",
+    address: "",
+    city: "",
+    state: "",
+    pincode: "",
+  });
 
   const loginUser = useSelector((state) => state.user);
   const [msg, setMsg] = useState(true);
