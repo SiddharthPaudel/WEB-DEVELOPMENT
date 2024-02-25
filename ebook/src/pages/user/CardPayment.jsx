@@ -5,7 +5,7 @@ import orderService from "../../service/order.service";
 const CardPayment = () => {
   const navigate = useNavigate();
   const { pr } = useParams();
-  const sum = parseInt(pr) + 90;
+  
 
   const payNow = (e) => {
     e.preventDefault();
