@@ -35,7 +35,7 @@ const ViewBook = () => {
       setBook(bk.data);
 
       cart.book = bk.data;
-      cart.user = user;
+      cart.user = user
 
       let st = await cartService.checkCart(cart);
       // console.log(st.data);
@@ -44,6 +44,8 @@ const ViewBook = () => {
       console.log(error);
     }
   };
+
+
 
   const notify = () =>
     toast.success("Added to Cart", {
