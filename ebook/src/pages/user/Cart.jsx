@@ -8,7 +8,17 @@ import orderService from "../../service/order.service";
 import { useSelector } from "react-redux";
 
 const Cart = () => {
- 
+  const [user, setUser] = useState({
+    id: "",
+    name: "",
+    email: "",
+    password: "",
+    mobNo: "",
+    address: "",
+    city: "",
+    state: "",
+    pincode: "",
+  });
 
   const loginUser = useSelector((u) => u.user);
 
