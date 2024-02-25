@@ -6,7 +6,7 @@ const OrderSuccess = () => {
     <div className="container text-center mt-5 p-5">
       <i className="fas fa-check-circle fa-5x text-success"></i>
       <h1>Thank You</h1>
-      <h2>Your Order Successfully</h2>
+      <h2>Your Order Successful</h2>
       <h5>With in 7 Days Your Product will be Delivered In your Address</h5>
       <a href="index.jsp" className="btn btn-primary mt-3">
         Home
