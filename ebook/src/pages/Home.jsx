@@ -1,164 +1,48 @@
 import book1 from "../img/book1.jpg";
-import crow from "../img/Crow.jpg"
-import stephen from "../img/Stephen.jpg"
-import wood from "../img/Wood.jpg"
-import cold from "../img/Cold.jpg"
 import book2 from "../img/book2.jpg";
 import book3 from "../img/book3.jpeg";
-import java from "../img/java.jpg";
-import c from "../img/c.png";
-import ml from "../img/ml.png";
-import story from "../img/story.jpg";
+import java from "../img/spi.jpg";
+import c from "../img/Crow.jpg";
+import download from "../img/self.jpeg";
+import ml from "../img/Stephen.jpg";
+import story from "../img/Wood.jpg";
 import { Link } from "react-router-dom";
 import { Footer } from "../component/footer/Footer";
 const Home = () => {
   return (
     <div>
-      <div
-        id="carouselExampleIndicators"
-        class="carousel slide"
-        data-bs-ride="carousel"
-      >
-        <div class="carousel-indicators">
-          <button
-            type="button"
-            data-bs-target="#carouselExampleIndicators"
-            data-bs-slide-to="0"
-            class="active"
-            aria-current="true"
-            aria-label="Slide 1"
-          ></button>
-          <button
-            type="button"
-            data-bs-target="#carouselExampleIndicators"
-            data-bs-slide-to="1"
-            aria-label="Slide 2"
-          ></button>
-          <button
-            type="button"
-            data-bs-target="#carouselExampleIndicators"
-            data-bs-slide-to="2"
-            aria-label="Slide 3"
-          ></button>
-        </div>
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img src={book2} class="d-block w-100" height="450px"  alt="..." />
+      <div className="card mb-3 " style={{maxWidth:"1500px",height:"490px",backgroundColor: '#7448e3'}}>
+        <div className="row g-0">
+          <div className="col-md-8">
+            <div className="card-body">
+              <h5 className="card-title" style={{color:"white",fontSize:"40px"}}>Welcome to BookShelf</h5>
+              <p className="card-text" style={{color:"white"}}>A bookstore is a treasure chest for the curious mind, where each book is a key unlocking realms of knowledge and imagination</p>
+              <a href="#" className="btn btn-danger" style={{marginTop:"20px"}}>Go somewhere</a>
+            </div>
           </div>
-          <div class="carousel-item">
-            <img src={book3} class="d-block w-100" height="450px" alt="..." />
-          </div>
-          <div class="carousel-item">
-            <img src={book1} class="d-block w-100" height="450px" alt="..." />
+          <div className="col-md-4">
+            <img src={download} className="img-fluid rounded-start" alt="..." style={{height:"400px",marginTop:"30px"}} />
           </div>
         </div>
-        <button
-          class="carousel-control-prev"
-          type="button"
-          data-bs-target="#carouselExampleIndicators"
-          data-bs-slide="prev"
-        >
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button
-          class="carousel-control-next"
-          type="button"
-          data-bs-target="#carouselExampleIndicators"
-          data-bs-slide="next"
-        >
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
       </div>
       <div className="container">
-      <p className="fs-3 text-center">      
-      
-      
-      
-       </p> 
         <div className="row">
-          <div className="col-md-3">
+          <div className="col-md-3" style={{marginRight:"60px"}}>
             <div className="card paint-card">
               <div className="card-body text-center">
-
-
-                <img src={crow} height="350px" width="90%"></img>
-               
-                {/* 
-                 <p className="fs-5">Java</p>
-                <Link to="/" className="btn btn-sm btn-primary">
-                  View Details
-                </Link>
-                <Link to="/" className="btn btn-sm btn-danger ms-2">
-                  &#8377; 300
-                </Link> */}
+                <img src={java} className="img-fluid" alt="Java" />
               </div>
             </div>
           </div>
-
-          {/* start extra book */}
-
-          <div className="col-md-3">
-            <div className="card paint-card">
-              <div className="card-body text-center">
-                <img src={stephen} height="350px" width="90%"></img>
-                
-                {/* 
-                 <p className="fs-5">Java</p>
-                <Link to="/" className="btn btn-sm btn-primary">
-                  View Details
-                </Link>
-                <Link to="/" className="btn btn-sm btn-danger ms-2">
-                  &#8377; 300
-                </Link> */}
-              </div>
+          <div className="col-md-8">
+            <div className="card-body">
+              <h5 className="card-title" style={{color:"white",fontSize:"40px"}}>Welcome to BookShelf</h5>
+              <p className="card-text" style={{color:"black"}}>Welcome to our E-Book Store BookShelf, your premier destination for all things digital reading! We specialize in providing an extensive collection of e-books across various genres, catering to the diverse tastes and preferences of our readers. At our E-Book Store BookShelf, we believe in the power of literature to enlighten, entertain, and inspire. Whether you're a seasoned bookworm or just beginning your reading journey, we have something for everyone. Dive into captivating fiction, explore insightful non-fiction, expand your knowledge with educational resources, or embark on thrilling adventures with our selection of e-books.</p>
             </div>
           </div>
-
-          <div className="col-md-3">
-            <div className="card paint-card">
-              <div className="card-body text-center">
-                <img src={wood} height="350px" width="90%"></img>
-               
-                {/* 
-                 <p className="fs-5">Java</p>
-                <Link to="/" className="btn btn-sm btn-primary">
-                  View Details
-                </Link>
-                <Link to="/" className="btn btn-sm btn-danger ms-2">
-                  &#8377; 300
-                </Link> */}
-              </div>
-            </div>
-          </div>
-
-          <div className="col-md-3">
-            <div className="card paint-card">
-              <div className="card-body text-center">
-                <img src={cold} height="350px" width="90%"></img>
-                
-                {/* 
-                 <p className="fs-5">Java</p>
-                <Link to="/" className="btn btn-sm btn-primary">
-                  View Details
-                </Link>
-                <Link to="/" className="btn btn-sm btn-danger ms-2">
-                  &#8377; 300
-                </Link> */}
-              </div>
-            </div>
-          </div>
-
-          {/* end extra book */}
         </div>
-        {/* <div className="text-center mt-4">
-          <Link to="" className="btn btn-danger btn-sm">
-            view all
-          </Link>
-        </div> */}
       </div>
-      <div className="mt-5">
+      <div className="mt-5" style={{maxWidth:"100%"}} >
         <Footer />
       </div>
     </div>

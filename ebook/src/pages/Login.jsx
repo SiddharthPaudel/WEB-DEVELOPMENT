@@ -49,19 +49,21 @@ const Login = () => {
   };
 
   return (
+
     <div
       className="container-fluid p-0 d-flex justify-content-center align-items-center"
-      style={{
-        backgroundImage: `url(${back})`,
-        backgroundPosition: "center",
-        backgroundSize: "cover",
-        backgroundRepeat: "no-repeat",
-        minHeight: "100vh",
-      }}
+      // style={{
+      //   backgroundImage: `url(${back})`,
+      //   backgroundPosition: "center",
+      //   backgroundSize: "cover",
+      //   backgroundRepeat: "no-repeat",
+      //   minHeight: "100vh",
+      // }}
+      style={{marginTop:"100px"}}
     >
       <div className="col-md-4">
         <div className="card shadow-lg border-0">
-          <div className="card-header bg-primary text-white text-center py-3">
+          <div className="card-header text-white text-center py-3" style={{background:'#7448e3'}}>
             <h4 className="mb-0">Welcome Back!</h4>
           </div>
           <div className="card-body p-4">
@@ -99,7 +101,7 @@ const Login = () => {
                   required
                 />
               </div>
-              <button type="submit" className="btn btn-primary w-100">
+              <button type="submit" className="btn btn-primary w-100" style={{background:'#7448e3'}}>
                 Login
               </button>
             </form>

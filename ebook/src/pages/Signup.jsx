@@ -84,18 +84,19 @@ const Signup = () => {
   return (
     <div
       className="container-fluid p-2"
-      style={{
-        backgroundImage: `url(${back})`,
-        backgroundPosition: "center",
-        backgroundSize: "cover",
-        backgroundRepeat: "no-repeat",
-      }}
+      // style={{
+      //   backgroundImage: `url(${back})`,
+      //   backgroundPosition: "center",
+      //   backgroundSize: "cover",
+      //   backgroundRepeat: "no-repeat",
+      // }}
+      style={{marginTop:"30px"}}
     >
       <div className="row">
         <div className="col-md-6 offset-md-3">
           <div className="card paint-card">
-            <div className="card-header">
-              <h3 className="text-center text-dark">Signup</h3>
+            <div className="card-header" style={{backgroundColor: '#7448e3'}}>
+              <h3 className="text-center text-white" >Signup</h3>
               {succMsg && (
                 <p className="fs-4 text-success text-center">{succMsg}</p>
               )}
@@ -247,7 +248,7 @@ const Signup = () => {
                 </div>
 
                 <div className="text-center mt-3">
-                  <button className="btn btn-primary col-md-12">
+                  <button className="btn btn-primary col-md-12" style={{backgroundColor: '#7448e3'}}>
                     Register
                   </button>
                 </div>

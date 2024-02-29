@@ -84,7 +84,7 @@ const Books = () => {
                   name="ch"
                   onChange={(e) => handleSearch(e)}
                 />
-                <button className="btn bg-primary ms-2 text-white">
+                <button className="btn  ms-2 text-white" style={{backgroundColor:'#7448e3'}}>
                   Search
                 </button>
               </div>
@@ -105,8 +105,8 @@ const Books = () => {
                         <div className="card-body text-center">
                           <img
                             src={BASE_API_URL + "/" + b.img}
-                            height="200px"
-                            width="60%"
+                            height="340px"
+                            width="250px"
                           ></img>
                           <p className="fs-5">{b.bookName}</p>
                           <Link
@@ -116,7 +116,7 @@ const Books = () => {
                             View Details
                           </Link>
                           <Link to="/" className="btn btn-sm btn-danger ms-2">
-                            &#8377; {b.price}
+                            Rs  {b.price}
                           </Link>
                         </div>
                       </div>
